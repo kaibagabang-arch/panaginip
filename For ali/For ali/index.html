@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<title>Panaginip — Kai</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("background.jpg") center / cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Allura', cursive;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.poem {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  padding: 60px;
+  background: rgba(255,248,235,0.93);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  animation: fadeIn 2.5s ease forwards;
+  opacity: 0;
+  font-size: 1.7rem;
+  line-height: 1.9;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.start {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start button {
+  font-family: 'Allura', cursive;
+  font-size: 2rem;
+  padding: 18px 36px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  background: #fff3e0;
+}
+
+.hidden { display: none; }
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" src="song.mp3" controls></audio>
+
+<div class="start" id="startScreen">
+  <button onclick="startExperience()">Tap to begin ♡</button>
+</div>
+
+<div class="poem">
+<h1 style="text-align:center;font-size:3rem;">Panaginip</h1>
+
+<p>
+Tila ba lahat ay hindi totoo, kapag kausap ka;
+Tila ba lahat ay paulit-ulit lang, na hindi nakakasawa.
+Pinakamasalanan na tao, lumuhod sa diyos upang ipanalangin ka, ibinigay ka niya, sungay ay naputol; Pinutol.
+
+Isasayaw kita ng mabagal, kahit lahat ay gusto kong madaliin, kapag kapiling ka'y gusto ko lahat pabagalin; Parang panaginip pag ika'y aking kapiling, mga sapak na binabato ay mabibigat, mga hinga ay malalim. Lahat ay hindi makatotohanan, ganda mo'y walang katotohanan.
+
+Parang panaginip ka, nakakagulat at nakakabaliw. Lumulutang ako saglit, sa iyong mga mata ako'y nahulog ng biglaan. Wala kang pahintulot na pumapasok sa dulo ng aking isipan; Ang isang kagaya kong makasalanan ay tila parang panaginip ng ika'y mapasakin.
+
+Panaginip lamang kita; Pinapanaginip lamang kita dati, kung ika'y nasa aking panaginip lamang, ayoko nang mabuhay pa sa reyalidad; Dahil mas buhay ako sa reyalidad na andiyan ka.
+</p>
+
+<div style="text-align:right;margin-top:40px;">Nag mamahal<br>~ Kai</div>
+</div>
+
+<script>
+function startExperience() {
+  const audio = document.getElementById("bgMusic");
+  audio.play().catch(e => alert("Chrome blocked audio. Use localhost server."));
+  document.getElementById("startScreen").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
